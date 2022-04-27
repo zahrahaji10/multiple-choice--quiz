@@ -15,34 +15,60 @@
   </head>
   <body>
     <!-- header contain navbar with nav links -->
-    <header>
+    <header class="header">
       <nav class="navbar-container">
         <!-- quiz logo -->
-        <div class="qiuz-logo">Quiz</div>
+        <div class="quiz-logo">Quiz</div>
         <!-- home page nav link with anchor tag -->
-        <div class="home-page-link" href="./index.html">Home</div>
+        <div class="navbar-link-item">
+          <a class="navbar-anchor" href="./index.html"> Home</a>
+        </div>
         <!-- high score page with anchor tag -->
-        <div class="highscore-page-link" href="./highscore.html">
-          high Scores
+        <div class="navbar-link-item">
+          <a class="navbar-anchor" href="./highscore.html"> High Score</a>
         </div>
       </nav>
     </header>
 
     <!-- main section of page  -->
-    <main class="maain container">
+    <main class="main-container">
       <section>
         <!-- quiz title -->
-        <h1>Code Quiz</h1>
+        <h1 class="quiz-title">Coding Quiz</h1>
         <!-- quiz information and rule session -->
         <div>
-          <p>Information about quiz and rules</p>
+          <p class="code-info">
+            Are you Ready for this coding quiz! You will have a 2 minutes count
+            down to complete this quiz. You have a total of 6 multiple quiz
+            questions. For each incorrect answer you will be penalised 10
+            seconds off the clock. At end of the quiz you will be presented with
+            your score. GOOD LUCK!
+          </p>
         </div>
         <!-- button to trigger game and timer -->
-        <div>
-          <button id="button-div" class="start-btn">start</button>
+        <div class="start-btn">
+          <button id="button-div" class="start-quiz-button">start</button>
         </div>
       </section>
     </main>
+
+    <!-- questions section -->
+
+    <!-- form section -->
+    <section id="form-section">
+      <div id="score">
+        <p>This is your score</p>
+      </div>
+      <form>
+        <div id="name-input">
+          <input type="Name" placeholder="Enter Full Name" />
+        </div>
+        <div id="submsitBtn">
+          <button>Submit</button>
+        </div>
+        <div>validate user input alert here</div>
+      </form>
+    </section>
     <script src="./assets/js/index.js"></script>
   </body>
 </html>

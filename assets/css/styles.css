@@ -4,5 +4,86 @@
   padding: 0px;
   font-family: "IBM Plex Sans", sans-serif;
 }
+/* color section for page */
+
+:root {
+  --white: #ffffff;
+  --black: #060b0f;
+  --dark-gray: #282a2a;
+  --light-gray: #8d9091;
+}
 
 /* navbar styling */
+
+.header {
+  background-color: var(--dark-gray);
+}
+
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 120px;
+}
+
+.quiz-logo {
+  color: var(--white);
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.navbar-anchor {
+  text-decoration: none;
+  color: #8d9091;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: overline;
+}
+
+/* main section styling  starts here*/
+
+/* title styling */
+.quiz-title {
+  padding: 30px 0px;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* coding info styling */
+
+.code-info {
+  border: 1px solid var(--light-gray);
+  text-align: center;
+  font-size: medium;
+  margin: 20px;
+  padding: 40px;
+  font-size: 20px;
+}
+
+/* start button styling */
+
+.start-btn {
+  text-align: center;
+}
+
+.start-quiz-button {
+  color: var(--dark-gray);
+  font-size: 15px;
+  padding: 10px 20px;
+  color: var(--black);
+  font-size: 15px;
+}
+
+.start-quiz-button:hover {
+  cursor: pointer;
+  background-color: var(--light-gray);
+  color: var(--white);
+}
+
+/* form section styling  */
