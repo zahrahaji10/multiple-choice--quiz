@@ -1,5 +1,4 @@
-// declare the timer variable here
-
+// declaring question title, answers and correct answer as objects in an array
 const questions = [
   //question 1
   {
@@ -77,3 +76,9 @@ const questions = [
     correctAnswer: "=",
   },
 ];
+
+// target the start button element
+const 
+//add an event lister button 
+//create to initiate function to start quiz with the click of a button 
+
