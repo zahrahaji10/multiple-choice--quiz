@@ -5,10 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fun Quiz</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      class="answer-list"
+      nk
+      rel="stylesheet"
+      href="./assets/css/styles.css"
+    />
+    <link
+      class="answer-list"
+      nk
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      class="answer-list"
+      nk
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      class="answer-list"
+      nk
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;600&display=swap"
       rel="stylesheet"
     />
@@ -31,44 +49,172 @@
     </header>
 
     <!-- main section of page  -->
-    <main class="main-container">
+
+    <!-- timer section here -->
+    <section>
+      <div class="timer-div">
+        Time Remaining: <span id="timer-span">2</span>
+      </div>
+    </section>
+    <!-- <div>Timer<spam id="timer=span">120</spam></div>
+    <div>
+      <button id="start-timer-buttom">Start Timer</button>
+    </div> -->
+
+    <main class="main-container" id="main-tag">
       <section>
         <!-- quiz title -->
         <h1 class="quiz-title">Coding Quiz</h1>
         <!-- quiz information and rule session -->
-        <div>
-          <p class="code-info">
-            Are you Ready for this coding quiz! You will have a 2 minutes count
-            down to complete this quiz. You have a total of 6 multiple quiz
-            questions. For each incorrect answer you will be penalised 10
-            seconds off the clock. At end of the quiz you will be presented with
-            your score. GOOD LUCK!
+        <div class="code-info">
+          <p class="ready">Are you Ready for this coding quiz!</p>
+          <p>
+            Here are the rules; You will have 2 minutes countdown to complete
+            this quiz. There are a total of 6 multiple choice questions. For
+            each incorrect answer you will be penalised 20 seconds off the timer
+            countdown. At end of the quiz you will be presented with your score.
+            GOOD LUCK!
           </p>
         </div>
         <!-- button to trigger game and timer -->
-        <div class="start-btn">
-          <button id="button-div" class="start-quiz-button">start</button>
+        <div class="start-btn-div">
+          <button id="startBtn" class="start-button">start</button>
         </div>
       </section>
-    </main>
 
-    <!-- questions section -->
+      <!-- question section -->
 
-    <!-- form section -->
-    <section id="form-section">
-      <div id="score">
-        <p>This is your score</p>
+      <section id="question-section">
+        <!-- question 1 -->
+        <h1 class="question-title">What does HTML stand for in coding?</h1>
+        <ul class="answers">
+          <li class="answer-list">Healthcare Technology management Layout</li>
+          <li class="answer-list">Hey That’s My Lunch</li>
+          <li class="answer-list">Hypertext Markup language (correct)</li>
+          <li class="answer-list">How To Marinate Lemons</li>
+        </ul>
+        <div id="render-alert" class="render-alert">
+          Alert message here: Correct or incorrect Answer
+        </div>
+
+        <!-- question 2 -->
+
+        <h1 class="question-title">What is the correct CSS syntax?</h1>
+        <ul class="answers">
+          <li class="answer-list">Header background: {black;}</li>
+          <li class="answer-list">{header background: black};</li>
+          <li class="answer-list">Header {background: black;}</li>
+          <li class="answer-list">Header (background: black;)</li>
+        </ul>
+        <div id="render-alert" class="render-alert">
+          Alert message here: Correct or incorrect Answer
+        </div>
+
+        <!-- question 3 -->
+
+        <h1 class="question-title">How do you insert a comment in CSS?</h1>
+        <ul>
+          <li class="answer-list">// This way //</li>
+          <li class="answer-list">/* This way */ (correct)</li>
+          <li class="answer-list">“ This way”</li>
+          <li class="answer-list">// This way</li>
+        </ul>
+        <div id="render-alert" class="render-alert">
+          Alert message here: Correct or incorrect Answer
+        </div>
+
+        <!-- question 4 -->
+
+        <h1 class="question-title">
+          In an HTML file where is the correct place to insert JavaScript tag?
+        </h1>
+        <ul>
+          <li class="answer-list">In the header section</li>
+          <li class="answer-list">At the start of the body section</li>
+          <li class="answer-list">
+            At the bottom of the body section (correct)
+          </li>
+          <li class="answer-list">In the footer section</li>
+        </ul>
+        <div id="render-alert" class="render-alert">
+          Alert message here: Correct or incorrect Answer
+        </div>
+
+        <!-- question 5 -->
+
+        <h1 class="question-title">
+          Which of the following is a type of way to target HTML elements in
+          CSS?
+        </h1>
+        <ul>
+          <li class="answer-list">Using a class selector (correct)</li>
+          <li class="answer-list">Using a variable name</li>
+          <li class="answer-list">Using a method</li>
+          <li class="answer-list">Using a list</li>
+        </ul>
+        <div id="render-alert" class="render-alert">
+          Alert message here: Correct or incorrect Answer
+        </div>
+
+        <!-- question 6 -->
+
+        <h1 class="question-title">
+          How do write variable names in JavaScript?
+        </h1>
+        <ul>
+          <li class="answer-list">
+            All letters in capitals without spacing between words
+          </li>
+          <li class="answer-list">
+            All letters in lowercase with spacing between words
+          </li>
+          <li class="answer-list">
+            First letter in uppercase, with spaces and first letter of
+            subsequent words uppercase.
+          </li>
+          <li class="answer-list">
+            First letter in lowercase, no spaces and first letter of subsequent
+            words uppercase.(correct)
+          </li>
+        </ul>
+        <div id="render-alert" class="render-alert">
+          Alert message here: Correct or incorrect Answer
+        </div>
+
+        <!-- question 7 -->
+
+        <h1 class="question-title">
+          Which operator is used to assign a value to an operator?
+        </h1>
+        <ul>
+          <li class="answer-list">+</li>
+          <li class="answer-list">=(correct)</li>
+          <li class="answer-list">*</li>
+          <li class="answer-list">$</li>
+        </ul>
+      </section>
+      <div id="render-alert" class="render-alert">
+        Alert message here: Correct or incorrect Answer
       </div>
-      <form>
-        <div id="name-input">
-          <input type="Name" placeholder="Enter Full Name" />
+
+      <!-- form section -->
+
+      <section id="form-section" class="form">
+        <div id="score">
+          <p>This is your score</p>
         </div>
-        <div id="submsitBtn">
-          <button>Submit</button>
-        </div>
-        <div>validate user input alert here</div>
-      </form>
-    </section>
+        <form>
+          <div id="user-name" class="user-name">
+            <label for="name">Full Name </label>
+            <input type="text" placeholder="Enter full name.." />
+          </div>
+          <div id="submsitBtn">
+            <button>Submit</button>
+          </div>
+          <div>validate user input alert here</div>
+        </form>
+      </section>
+    </main>
     <script src="./assets/js/index.js"></script>
   </body>
 </html>
