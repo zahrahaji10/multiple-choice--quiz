@@ -1,6 +1,10 @@
 // declare time in a variable
-let time = 10;
-
+let time = 60;
+let gameOver = false;
+let correctAnswers = 0;
+// declare message in a variable
+let message = "";
+let timerInterval;
 let whatQuestionAreWeOn = 0;
 
 // targeting start button element
@@ -93,6 +97,10 @@ const onLoad = () => {
 };
 
 const appendForm = () => {
+  //target timer span
+  const timerSpan = document.getElementById("timer-span");
+  //update timer span for each second
+  timerSpan.innerText = time;
   //target main section
   const mainSection = document.getElementById("main-tag");
   //creating a section for form
@@ -100,7 +108,7 @@ const appendForm = () => {
   // using HTML as guide to build form section in JS
   formSection.innerHTML = `<section id="form-section" class="form">
   <div id="score">
-    <p>This is your score</p>
+    <p> Your score is ${time}</p>
   </div>
   <form>
     <div id="user-name" class="user-name">
@@ -120,11 +128,12 @@ const appendForm = () => {
 };
 
 const valiateAnswers = (currentQuestionIndex, userAnswer) => {
-  if (userAnswer === question[currentQuestionIndex].correctAnswer) {
-    console.log("true");
+  if (
+    userAnswer.trim("") ===
+    questions[currentQuestionIndex].correctAnswer.trim("")
+  ) {
     return true;
   } else {
-    console.log("false");
     return false;
   }
 };
@@ -132,11 +141,10 @@ const valiateAnswers = (currentQuestionIndex, userAnswer) => {
 const renderQuestionSection = () => {
   let getQuestions = "";
   // make a loop and that keep adding the the HTML onto the getQuestions and then add to the html (with a template literal)
-  console.log(`we are on ${whatQuestionAreWeOn}`);
+  // console.log(`we are on ${whatQuestionAreWeOn}`);
   questions[whatQuestionAreWeOn].answers.forEach((answer) => {
     getQuestions += `<li class="answer-list">${answer}</li>`;
   });
-
   // targeting the main section
   const mainSection = document.getElementById("main-tag");
   //create question section in the main section
@@ -145,7 +153,7 @@ const renderQuestionSection = () => {
   questionSection.innerHTML = `<section id="question-section">
   <h1 class="question-title">${questions[whatQuestionAreWeOn].questionTitle}</h1>
   <ul class="answers">${getQuestions}</ul>
-  <div id="render-alert" class="render-alert">
+  <div id="render-alert" class="render-alert">${message}
   </div>
 </section> `;
   //append question section on to main section
@@ -154,14 +162,39 @@ const renderQuestionSection = () => {
   let answers = document.querySelectorAll(".answer-list");
   answers.forEach((answer) => {
     answer.addEventListener("click", (event) => {
-      valiateAnswers(whatQuestionAreWeOn, event.target.innerText);
+      //call the valiate answer function when user clicks on a list item
+      if (valiateAnswers(whatQuestionAreWeOn, event.target.innerText)) {
+        message = "<span style='color:green'>Correct answer!</span>";
+        correctAnswers++;
+      } else {
+        message = "<span style='color:red'>Incorrect answer!</span>";
+        console.log(time);
+        if (time - 10 >= 0) {
+          time = time - 10;
+        } else {
+          appendForm();
+          gameOver = true;
+        }
+      }
+
+      // clear the main section of previous section
       mainSection.innerHTML = "";
+      // append next question index on to the main section
       whatQuestionAreWeOn++;
+      // call the render question function
       renderQuestionSection(whatQuestionAreWeOn);
     });
   });
+  // resetting render alert message
+  setTimeout(() => {
+    const renderAlert = document.querySelector("#render-alert");
+    if (renderAlert) {
+      renderAlert.innerText = "";
+    }
+  }, 2000);
   //if get questions is equals to 7 append form
   if (whatQuestionAreWeOn === 6) {
+    gameOver = true;
     //calling get append form function
     return appendForm();
   }
@@ -176,19 +209,17 @@ const startTimer = () => {
     Time Remaining: <span id="timer-span">${time}</span> seconds
   </div>
 </div>`;
-  //set interval for timer
-  let timerInterval = setInterval(function () {
-    if (time === 0) {
-      clearInterval(timerInterval);
-      const renderAlert = document.querySelector("#render-alert");
-      renderAlert.innerText = "Your Time is up!! ";
-    } else if (time > 0) {
-      //set interval to minus one second from 60 seconds
-      time--;
+  // set interval for timer
+  setInterval(() => {
+    if (time == 0 || gameOver) {
+      appendForm();
+    } else if (!gameOver) {
       //target timer span
       const timerSpan = document.getElementById("timer-span");
       //update timer span for each second
       timerSpan.innerText = time;
+      //set interval to minus one second from 60 seconds
+      time--;
     }
   }, 1000);
 };
