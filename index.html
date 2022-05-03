@@ -15,35 +15,38 @@
   </head>
   <body>
     <!-- header contain navbar with nav links -->
+
     <header class="header">
       <nav class="navbar-container">
         <!-- quiz logo -->
         <div class="quiz-logo">Quiz</div>
+
         <!-- home page nav link with anchor tag -->
+
         <div class="navbar-link-item">
           <a class="navbar-anchor" href="./index.html"> Home</a>
         </div>
         <!-- high score page with anchor tag -->
+
         <div class="navbar-link-item">
           <a class="navbar-anchor" href="./highscore.html"> High Score</a>
         </div>
       </nav>
     </header>
 
-    <!-- main section of page  -->
+    <!-- timer container-->
+    <div class="timer-contianer"></div>
 
-    <!-- timer section here -->
-    <!-- <section>
-      <div id="timerStartBtn" class="timer-div">
-        Time Remaining: <span id="timer-span">00:60</span>
-      </div>
-    </section> -->
+    <!-- main section of page  -->
 
     <main class="main-container" id="main-tag">
       <section id="start-quiz-section">
         <!-- quiz title -->
+
         <h1 class="quiz-title">Coding Quiz</h1>
+
         <!-- quiz information and rule session -->
+
         <div class="code-info">
           <p class="ready">Are you Ready for this coding quiz!</p>
           <p>
@@ -55,156 +58,11 @@
           </p>
         </div>
         <!-- button to trigger game and timer -->
+
         <div class="start-btn-div">
           <button id="quizStartBtn" class="start-button">start</button>
         </div>
       </section>
-
-      <!-- question section -->
-
-      <!-- question 1 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">What does HTML stand for in coding?</h1>
-        <ul class="answers">
-          <li class="answer-list">Healthcare Technology management Layout</li>
-          <li class="answer-list">Hey That’s My Lunch</li>
-          <li class="answer-list">Hypertext Markup language </li>
-          <li class="answer-list">How To Marinate Lemons</li>
-        </ul>
-        <div id="render-alert" class="render-alert">
-          Alert message here: Correct or incorrect Answer
-        </div>
-      </section> -->
-
-      <!-- question 2 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">What is the correct CSS syntax?</h1>
-        <ul class="answers">
-          <li class="answer-list">Header background: {black;}</li>
-          <li class="answer-list">{header background: black};</li>
-          <li class="answer-list">Header {background: black;}</li>
-          <li class="answer-list">Header (background: black;)</li>
-        </ul>
-        <div id="render-alert" class="render-alert">
-          Alert message here: Correct or incorrect Answer
-        </div>
-        </section> -->
-
-      <!-- question 3 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">How do you insert a comment in CSS?</h1>
-        <ul>
-          <li class="answer-list">// This way //</li>
-          <li class="answer-list">/* This way */ (correct)</li>
-          <li class="answer-list">“ This way”</li>
-          <li class="answer-list">// This way</li>
-        </ul>
-        <div id="render-alert" class="render-alert">
-          Alert message here: Correct or incorrect Answer
-        </div>
-      </section> -->
-
-      <!-- question 4 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">
-          In an HTML file where is the correct place to insert JavaScript tag?
-        </h1>
-        <ul>
-          <li class="answer-list">In the header section</li>
-          <li class="answer-list">At the start of the body section</li>
-          <li class="answer-list">
-            At the bottom of the body section (correct)
-          </li>
-          <li class="answer-list">In the footer section</li>
-        </ul>
-        <div id="render-alert" class="render-alert">
-          Alert message here: Correct or incorrect Answer
-        </div>
-        </section> -->
-
-      <!-- question 5 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">
-          Which of the following is a type of way to target HTML elements in
-          CSS?
-        </h1>
-        <ul>
-          <li class="answer-list">Using a class selector (correct)</li>
-          <li class="answer-list">Using a variable name</li>
-          <li class="answer-list">Using a method</li>
-          <li class="answer-list">Using a list</li>
-        </ul>
-        <div id="render-alert" class="render-alert">
-          Alert message here: Correct or incorrect Answer
-        </div>
-        </section> -->
-
-      <!-- question 6 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">
-          How do write variable names in JavaScript?
-        </h1>
-        <ul>
-          <li class="answer-list">
-            All letters in capitals without spacing between words
-          </li>
-          <li class="answer-list">
-            All letters in lowercase with spacing between words
-          </li>
-          <li class="answer-list">
-            First letter in uppercase, with spaces and first letter of
-            subsequent words uppercase.
-          </li>
-          <li class="answer-list">
-            First letter in lowercase, no spaces and first letter of subsequent
-            words uppercase.(correct)
-          </li>
-        </ul>
-        <div id="render-alert" class="render-alert">
-          Alert message here: Correct or incorrect Answer
-        </div>
-        </section> -->
-
-      <!-- question 7 -->
-
-      <!-- <section id="question-section">
-        <h1 class="question-title">
-          Which operator is used to assign a value to an operator?
-        </h1>
-        <ul>
-          <li class="answer-list">+</li>
-          <li class="answer-list">=(correct)</li>
-          <li class="answer-list">*</li>
-          <li class="answer-list">$</li>
-        </ul>
-      <div id="render-alert" class="render-alert">
-        Alert message here: Correct or incorrect Answer
-      </div>
-      </section> -->
-
-      <!-- form section -->
-
-      <!-- <section id="form-section" class="form">
-        <div id="score">
-          <p>This is your score</p>
-        </div>
-        <form>
-          <div id="user-name" class="user-name">
-            <label for="name">Full Name </label>
-            <input type="text" placeholder="Enter full name.." />
-          </div>
-          <div id="submsitBtn">
-            <button>Submit</button>
-          </div>
-          <div>validate user input alert here</div>
-        </form>
-      </section> -->
     </main>
     <script src="./assets/js/index.js"></script>
   </body>

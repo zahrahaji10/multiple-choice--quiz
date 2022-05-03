@@ -1,5 +1,7 @@
 // declare time in a variable
-let Time = 60;
+let time = 10;
+
+let whatQuestionAreWeOn = 0;
 
 // targeting start button element
 const quizStartBnt = document.getElementById("quizStartBtn");
@@ -90,9 +92,42 @@ const onLoad = () => {
   //create to initiate function to start quiz with the click of a button
 };
 
-const appendForm = () => {};
+const appendForm = () => {
+  //target main section
+  const mainSection = document.getElementById("main-tag");
+  //creating a section for form
+  const formSection = document.createElement("form");
+  // using HTML as guide to build form section in JS
+  formSection.innerHTML = `<section id="form-section" class="form">
+  <div id="score">
+    <p>This is your score</p>
+  </div>
+  <form>
+    <div id="user-name" class="user-name">
+      <label for="name">Full Name </label>
+      <input type="text" placeholder="Enter full name.." />
+    </div>
+    <div id="submsitBtn">
+      <button>Submit</button>
+    </div>
+    <div>validate user input alert here</div>
+  </form>
+ </section>`;
+  //clear section
+  mainSection.innerHTML = "";
+  // append form section into main page
+  mainSection.appendChild(formSection);
+};
 
-let whatQuestionAreWeOn = 0;
+const valiateAnswers = (currentQuestionIndex, userAnswer) => {
+  if (userAnswer === question[currentQuestionIndex].correctAnswer) {
+    console.log("true");
+    return true;
+  } else {
+    console.log("false");
+    return false;
+  }
+};
 
 const renderQuestionSection = () => {
   let getQuestions = "";
@@ -111,7 +146,6 @@ const renderQuestionSection = () => {
   <h1 class="question-title">${questions[whatQuestionAreWeOn].questionTitle}</h1>
   <ul class="answers">${getQuestions}</ul>
   <div id="render-alert" class="render-alert">
-    Alert message here: Correct or incorrect Answer
   </div>
 </section> `;
   //append question section on to main section
@@ -119,44 +153,44 @@ const renderQuestionSection = () => {
   // add click event listener on #question-section
   let answers = document.querySelectorAll(".answer-list");
   answers.forEach((answer) => {
-    answer.addEventListener("click", () => {
+    answer.addEventListener("click", (event) => {
+      valiateAnswers(whatQuestionAreWeOn, event.target.innerText);
       mainSection.innerHTML = "";
       whatQuestionAreWeOn++;
       renderQuestionSection(whatQuestionAreWeOn);
     });
   });
   //if get questions is equals to 7 append form
-  if (getQuestions === 7) {
-    return;
-    //if get questions is equals to 7 append form
+  if (whatQuestionAreWeOn === 6) {
+    //calling get append form function
+    return appendForm();
   }
 };
 
 const startTimer = () => {
-  //target the main section
-  const mainSection = document.getElementById("main-tag");
-  // creating a div for timer section
-  const timerSection = document.createElement("section");
-  //using HTML to build the timer
-  timerSection.innerHTML = `<section>
-    <div id="timerStartBtn" class="timer-div">
-      Timer Countdown : <span id="timer-span">${60} seconds</span>
-    </div>
-  </section>`;
-  // append timer section to main section
-  mainSection.appendChild(timerSection);
-
-  // declare function to execute every 1 sec
-  const countdown = () => {
-    // decrement timer value
-    // if quizComplete is true then stop timer
-    // check if timer reaches 0
-    // if true render game over
-  };
-
-  renderQuestionSection();
-
-  // setInterval of 1000ms (1s)
+  //target the timer container
+  const timerContainer = document.querySelector(".timer-contianer");
+  //create the inner HTML for timer
+  timerContainer.innerHTML = `<div class="timer-div">
+  <div id="timerStartBtn">
+    Time Remaining: <span id="timer-span">${time}</span> seconds
+  </div>
+</div>`;
+  //set interval for timer
+  let timerInterval = setInterval(function () {
+    if (time === 0) {
+      clearInterval(timerInterval);
+      const renderAlert = document.querySelector("#render-alert");
+      renderAlert.innerText = "Your Time is up!! ";
+    } else if (time > 0) {
+      //set interval to minus one second from 60 seconds
+      time--;
+      //target timer span
+      const timerSpan = document.getElementById("timer-span");
+      //update timer span for each second
+      timerSpan.innerText = time;
+    }
+  }, 1000);
 };
 
 const startQuiz = () => {
@@ -169,6 +203,8 @@ const startQuiz = () => {
   };
   // call the remove start section function
   removeStartSection();
+  //call render question function
+  renderQuestionSection();
   //call the start timer function
   startTimer();
 };
