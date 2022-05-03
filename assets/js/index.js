@@ -5,6 +5,7 @@ let correctAnswers = 0;
 // declare message in a variable
 let message = "";
 let timerInterval;
+let scoreDetails = {};
 let whatQuestionAreWeOn = 0;
 
 // targeting start button element
@@ -89,13 +90,6 @@ const questions = [
   },
 ];
 
-const onLoad = () => {
-  // initialise local storage
-  // check if high scores exists in LS
-  // if false then set high scores to empty array in LS
-  //create to initiate function to start quiz with the click of a button
-};
-
 const appendForm = () => {
   //target timer span
   const timerSpan = document.getElementById("timer-span");
@@ -105,26 +99,36 @@ const appendForm = () => {
   const mainSection = document.getElementById("main-tag");
   //creating a section for form
   const formSection = document.createElement("form");
+  formSection.action = "./highscore.html";
   // using HTML as guide to build form section in JS
   formSection.innerHTML = `<section id="form-section" class="form">
   <div id="score">
     <p> Your score is ${time}</p>
   </div>
-  <form>
+  <div>
     <div id="user-name" class="user-name">
       <label for="name">Full Name </label>
-      <input type="text" placeholder="Enter full name.." />
+      <input class="name-input" type="text" placeholder="Enter full name.." />
     </div>
     <div id="submsitBtn">
       <button>Submit</button>
     </div>
     <div>validate user input alert here</div>
-  </form>
+  </div>
  </section>`;
   //clear section
   mainSection.innerHTML = "";
+
   // append form section into main page
   mainSection.appendChild(formSection);
+
+  let form = document.querySelector("form");
+  let userInput = document.querySelector(".user-name input");
+  form.addEventListener("submit", (event) => {
+    scoreDetails.name = userInput.value;
+    scoreDetails.score = time;
+    localStorage.setItem("allScores", JSON.stringify(scoreDetails));
+  });
 };
 
 const valiateAnswers = (currentQuestionIndex, userAnswer) => {
@@ -141,7 +145,7 @@ const valiateAnswers = (currentQuestionIndex, userAnswer) => {
 const renderQuestionSection = () => {
   let getQuestions = "";
   // make a loop and that keep adding the the HTML onto the getQuestions and then add to the html (with a template literal)
-  // console.log(`we are on ${whatQuestionAreWeOn}`);
+
   questions[whatQuestionAreWeOn].answers.forEach((answer) => {
     getQuestions += `<li class="answer-list">${answer}</li>`;
   });
@@ -168,11 +172,9 @@ const renderQuestionSection = () => {
         correctAnswers++;
       } else {
         message = "<span style='color:red'>Incorrect answer!</span>";
-        console.log(time);
         if (time - 10 >= 0) {
           time = time - 10;
         } else {
-          appendForm();
           gameOver = true;
         }
       }
@@ -185,6 +187,7 @@ const renderQuestionSection = () => {
       renderQuestionSection(whatQuestionAreWeOn);
     });
   });
+
   // resetting render alert message
   setTimeout(() => {
     const renderAlert = document.querySelector("#render-alert");
@@ -192,11 +195,12 @@ const renderQuestionSection = () => {
       renderAlert.innerText = "";
     }
   }, 2000);
+
   //if get questions is equals to 7 append form
   if (whatQuestionAreWeOn === 6) {
     gameOver = true;
     //calling get append form function
-    return appendForm();
+    appendForm();
   }
 };
 
@@ -210,8 +214,9 @@ const startTimer = () => {
   </div>
 </div>`;
   // set interval for timer
-  setInterval(() => {
-    if (time == 0 || gameOver) {
+  timerInterval = setInterval(() => {
+    if (time == 0 || (gameOver && whatQuestionAreWeOn < 6)) {
+      clearInterval(timerInterval);
       appendForm();
     } else if (!gameOver) {
       //target timer span

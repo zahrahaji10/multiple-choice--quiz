@@ -16,6 +16,34 @@
   <body>
     <!-- header contain navbar with nav links -->
 
+    <header class="header">
+      <nav class="navbar-container">
+        <!-- quiz logo -->
+        <div class="quiz-logo">Quiz</div>
+
+        <!-- home page nav link with anchor tag -->
+
+        <div class="navbar-link-item">
+          <a class="navbar-anchor" href="./index.html"> Home</a>
+        </div>
+        <!-- high score page with anchor tag -->
+
+        <div class="navbar-link-item">
+          <a class="navbar-anchor" href="./highscore.html"> High Score</a>
+        </div>
+      </nav>
+    </header>
+    <div class="score-container">
+      <h1>Top Score:</h1>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Score</th>
+        </thead>
+        <tbody class="score-board"></tbody>
+      </table>
+      <a class="back-button" href="./index.html"> Back to quiz </a>
+    </div>
     <!-- main section of page  -->
     <main></main>
     <script src="./assets/js/index.highscore.js"></script>

@@ -152,3 +152,37 @@ input {
   text-align: center;
   text-decoration: underline;
 }
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-container table {
+  border: solid black;
+  margin-top: 60px;
+  text-align: left;
+}
+
+.score-container th {
+  background: #d2d2d220;
+}
+.score-container td,
+.score-container th {
+  padding: 10px;
+}
+
+.back-button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background: black;
+  color: white;
+  text-decoration: none !important;
+}
