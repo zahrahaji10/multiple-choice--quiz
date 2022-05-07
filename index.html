@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun Quiz</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- header contain navbar with nav links -->
+
+    <header class="header">
+      <nav class="navbar-container">
+        <!-- quiz logo -->
+        <div class="quiz-logo">Quiz</div>
+
+        <!-- home page nav link with anchor tag -->
+
+        <div class="navbar-link-item">
+          <a class="navbar-anchor" href="./index.html"> Home</a>
+        </div>
+        <!-- high score page with anchor tag -->
+
+        <div class="navbar-link-item">
+          <a class="navbar-anchor" href="./highscore.html"> High Score</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- timer container-->
+    <div class="timer-contianer"></div>
+
+    <!-- main section of page  -->
+
+    <main class="main-container" id="main-tag">
+      <section id="start-quiz-section">
+        <!-- quiz title -->
+
+        <h1 class="quiz-title">Coding Quiz</h1>
+
+        <!-- quiz information and rule session -->
+
+        <div class="code-info">
+          <p class="ready">Are you Ready for this coding quiz!</p>
+          <p>
+            Here are the rules; You will have 60 seconds countdown to complete
+            this quiz. There are a total of 6 multiple choice questions. For
+            each incorrect answer you will be penalised 20 seconds off the timer
+            countdown. At end of the quiz you will be presented with your score.
+            GOOD LUCK!
+          </p>
+        </div>
+        <!-- button to trigger game and timer -->
+
+        <div class="start-btn-div">
+          <button id="quizStartBtn" class="start-button">start</button>
+        </div>
+      </section>
+    </main>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
