@@ -8,6 +8,8 @@ This project is a code quiz with 7 multiple choice questions created using HTML,
 
 https://zahrahaji10.github.io/multiple-choice--quiz/
 
+https://github.com/zahrahaji10/multiple-choice--quiz/tree/dev
+
 ## User Journey
 
 - When the page loads the user is presented with the rules of the quiz.
