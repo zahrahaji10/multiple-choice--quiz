@@ -11,6 +11,14 @@ let whatQuestionAreWeOn = 0;
 // targeting start button element
 const quizStartBnt = document.getElementById("quizStartBtn");
 
+// fn to remove the start section
+const removeStartSection = () => {
+  //targets the main tag element
+  const startSection = document.getElementById("start-quiz-section");
+  //removes the start section
+  startSection.remove();
+};
+
 // declaring question title, answers and correct answer as objects in an array
 const questions = [
   //question 1
@@ -231,13 +239,6 @@ const startTimer = () => {
 };
 
 const startQuiz = () => {
-  //remove the start section
-  const removeStartSection = () => {
-    //targets the main tag element
-    const startSection = document.getElementById("start-quiz-section");
-    //removes the start section
-    startSection.remove();
-  };
   // call the remove start section function
   removeStartSection();
   //call render question function
