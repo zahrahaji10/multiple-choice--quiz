@@ -22,7 +22,7 @@ https://github.com/zahrahaji10/multiple-choice--quiz
 
 - When the page loads the user is presented with the rules of the quiz.
 
-  <img width="934" alt="webpage" src="https://user-images.githubusercontent.com/102627226/167036858-f447b5a9-aea6-4782-b08d-834502a62eb1.png">
+<img width="934" alt="webpage" src="https://user-images.githubusercontent.com/102627226/167036858-f447b5a9-aea6-4782-b08d-834502a62eb1.png">
 
 - When the user clicks the start button, a 60 second timer starts and they are presented with the first question.
 
@@ -42,9 +42,10 @@ https://github.com/zahrahaji10/multiple-choice--quiz
 
 ## Technologies
 
+- JavaScript
+- Moment Js
 - HTML
 - CSS
-- JavaScript
 
 
 ### Question
