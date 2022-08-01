@@ -124,6 +124,7 @@ const appendForm = () => {
 
   let form = document.querySelector("form");
   let userInput = document.querySelector(".user-name input");
+
   form.addEventListener("submit", (event) => {
     scoreDetails.name = userInput.value;
     scoreDetails.score = time;

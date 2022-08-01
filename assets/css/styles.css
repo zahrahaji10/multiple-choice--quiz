@@ -186,3 +186,12 @@ input {
   color: white;
   text-decoration: none !important;
 }
+
+/* responsivness */
+
+@media only screen and (max-width: 510px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
